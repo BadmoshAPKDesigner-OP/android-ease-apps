@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Apps</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #08080a;
+            color: #f3f3f6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: 20%;
+            left: 30%;
+            z-index: 0;
+            filter: blur(40px);
+            animation: float 8s ease-in-out infinite alternate;
+        }
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, rgba(0,0,0,0) 70%);
+            bottom: 10%;
+            right: 20%;
+            z-index: 0;
+            filter: blur(60px);
+            animation: float 12s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(30px) scale(1.1); }
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 440px;
+            padding: 40px;
+        }
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1c1c24 0%, #0d0d11 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            margin: 0 auto 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        }
+        .app-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: #ffffff;
+            stroke-width: 1.2;
+            fill: none;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        p {
+            font-size: 0.95rem;
+            color: #8a8a93;
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 32px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .meta-text {
+            display: block;
+            margin-top: 20px;
+            font-size: 0.75rem;
+            color: #48484a;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="app-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+        </div>
+        
+        <h1>Android Ease Apps</h1>
+        <p>This repository contains many apps which are made for the ease of android users. Please take your time to download.</p>
+        
+        <!-- Link points directly to your repository release assets -->
+        <a href="https://github.com" class="btn">
+            View App Downloads
+        </a>
+        
+        <span class="meta-text">Android APK Portal</span>
+    </div>
+
+</body>
+</html>
