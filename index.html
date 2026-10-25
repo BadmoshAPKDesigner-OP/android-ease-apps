@@ -18,104 +18,120 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden;
+            padding: 40px 20px;
             position: relative;
         }
         body::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, rgba(0,0,0,0) 70%);
-            top: 20%;
-            left: 30%;
-            z-index: 0;
-            filter: blur(40px);
-            animation: float 8s ease-in-out infinite alternate;
-        }
-        body::after {
-            content: '';
-            position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, rgba(0,0,0,0) 70%);
-            bottom: 10%;
-            right: 20%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.12) 0%, rgba(0,0,0,0) 70%);
+            top: 10%;
+            left: 20%;
             z-index: 0;
-            filter: blur(60px);
-            animation: float 12s ease-in-out infinite alternate-reverse;
-        }
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(30px) scale(1.1); }
+            filter: blur(50px);
         }
         .container {
             position: relative;
             z-index: 1;
             text-align: center;
-            max-width: 440px;
-            padding: 40px;
-        }
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #1c1c24 0%, #0d0d11 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 22px;
-            margin: 0 auto 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-        }
-        .app-icon svg {
-            width: 36px;
-            height: 36px;
-            stroke: #ffffff;
-            stroke-width: 1.2;
-            fill: none;
+            max-width: 600px;
+            width: 100%;
         }
         h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 300;
             letter-spacing: -0.5px;
             margin-bottom: 12px;
             color: #ffffff;
         }
-        p {
+        .subtitle {
             font-size: 0.95rem;
             color: #8a8a93;
             line-height: 1.6;
             font-weight: 300;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
-        .btn {
-            display: inline-flex;
+        .app-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+        @media (min-width: 480px) {
+            .app-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .app-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 30px 24px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .app-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #ffffff;
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            color: #8a8a93;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            min-height: 40px;
+        }
+        .btn-download {
             width: 100%;
-            padding: 16px 32px;
+            padding: 12px 20px;
             background: #ffffff;
             color: #000000;
             text-decoration: none;
-            border-radius: 30px;
-            font-size: 0.95rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 500;
-            letter-spacing: 0.2px;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+            transition: background 0.2s, transform 0.1s;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        .btn-download:hover {
+            background: #e5e5ea;
         }
-        .btn:active {
-            transform: translateY(0);
+        .btn-download:active {
+            transform: scale(0.98);
         }
-        .meta-text {
+        .meta-footer {
             display: block;
-            margin-top: 20px;
+            margin-top: 48px;
             font-size: 0.75rem;
             color: #48484a;
             letter-spacing: 0.5px;
@@ -126,23 +142,36 @@
 <body>
 
     <div class="container">
-        <div class="app-icon">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-            </svg>
+        <h1>Android Ease Apps</h1>
+        <p class="subtitle">Premium mobile architecture utility hub.</p>
+        
+        <div class="app-grid">
+            
+            <!-- LOGIX CARD -->
+            <div class="app-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h2 class="card-title">Logix</h2>
+                <p class="card-desc">Advanced systems optimization and deployment utility.</p>
+                <!-- Right-click your Logix APK asset on GitHub, copy link, and paste it over the href below -->
+                <a href="https://github.com/BadmoshAPKDesigner-OP/android-ease-apps/releases/download/v1.0.0/logix_.apk" class="btn-download">Download Logix</a>
+            </div>
+
+            <!-- PROMPTLOGIC CARD -->
+            <div class="app-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h2 class="card-title">PromptLogic</h2>
+                <p class="card-desc">Smart accessibility logic configurations for Android.</p>
+                <!-- Right-click your PromptLogic APK asset on GitHub, copy link, and paste it over the href below -->
+                <a href="https://github.com/BadmoshAPKDesigner-OP/android-ease-apps/releases/download/v1.1.0/promptlogic_.apk" class="btn-download">Download PromptLogic</a>
+            </div>
+
         </div>
         
-        <h1>Android Ease Apps</h1>
-        <p>This repository contains many apps which are made for the ease of android users. Please take your time to download.</p>
-        
-        <!-- Link points directly to your repository release assets -->
-        <a href="https://github.com" class="btn">
-            View App Downloads
-        </a>
-        
-        <span class="meta-text">Android APK Portal</span>
+        <span class="meta-footer">Ecosystem Repository Control</span>
     </div>
 
 </body>
